@@ -355,7 +355,7 @@ function Home({ searchQuery }) {
                     className="search-input"
                     placeholder="Search..."
                   />
-                  <span className="search-icon">🔍</span>
+                   <i className="fas fa-search search-icon"></i>
                 </div>
               </div>
             </nav>
