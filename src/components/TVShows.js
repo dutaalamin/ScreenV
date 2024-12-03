@@ -133,6 +133,26 @@ function TVShows({ searchQuery }) {
       {selectedShow && (
         <div className="modal" onClick={() => setSelectedShow(null)}>
           <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <nav className="navbar">
+              <div className="navbar-content">
+                <div className="nav-left">
+                  <a href="/" className="brand-logo">ScreenV</a>
+                  <div className="nav-links">
+                    <a href="/" className="nav-link">Home</a>
+                    <a href="/movies" className="nav-link">Movies</a>
+                    <a href="/tvshows" className="nav-link">TV Shows</a>
+                  </div>
+                </div>
+                <div className="search-container">
+                  <input
+                    type="text"
+                    className="search-input"
+                    placeholder="Search..."
+                  />
+                  <i className="fas fa-search search-icon"></i>
+                </div>
+              </div>
+            </nav>
             <button className="close-btn" onClick={() => setSelectedShow(null)}>×</button>
             <div className="modal-hero">
               <img 
