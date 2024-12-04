@@ -143,6 +143,8 @@ function Home({ searchQuery }) {
     (item.title || item.name).toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  console.log(filteredTrendingContent);
+
   return (
     <div>
       {searchQuery ? (
@@ -313,7 +315,12 @@ function Home({ searchQuery }) {
             </div>
             <div className="movie-container">
               {filteredTrendingContent.map((item) => (
-                <div key={item.id} className="movie-card">
+                <div 
+                  key={item.id} 
+                  className="movie-card"
+                  onClick={() => handleMovieClick(item.id)}
+                  style={{ cursor: 'pointer' }}
+                >
                   <img
                     src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                     alt={item.title || item.name}
@@ -323,7 +330,9 @@ function Home({ searchQuery }) {
                   <div className="movie-info">
                     <h3>{item.title || item.name}</h3>
                     <div className="movie-meta">
-                      <span className="rating">⭐ {item.vote_average.toFixed(1)}</span>
+                      <span className="rating">
+                        ⭐ {item.vote_average !== undefined ? item.vote_average.toFixed(1) : 'N/A'}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -355,7 +364,7 @@ function Home({ searchQuery }) {
                     className="search-input"
                     placeholder="Search..."
                   />
-                   <i className="fas fa-search search-icon"></i>
+                  <i className="fas fa-search search-icon"></i>
                 </div>
               </div>
             </nav>
